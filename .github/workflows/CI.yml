@@ -57,7 +57,7 @@ jobs:
       - name: x86 installer
         shell: bash
         run: ./build-win32.sh
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: windows
           path: |
@@ -65,7 +65,7 @@ jobs:
             HarmonySetup32.exe
           if-no-files-found: error
   linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: cache
@@ -87,12 +87,12 @@ jobs:
         run: ./build-linux-x86_64.sh
       - name: linux-aarch64
         run: ./build-linux-aarch64.sh
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: jar
           path: target/Harmony.jar
           if-no-files-found: error
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: linux
           path: |
@@ -135,7 +135,7 @@ jobs:
         run: ./build-osx-x64.sh --build --dmg
       - name: macos-aarch64
         run: ./build-osx-aarch64.sh --build --dmg
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: macos
           path: |
