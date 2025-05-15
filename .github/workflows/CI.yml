@@ -82,7 +82,7 @@ jobs:
           HarmonySetupAArch64.exe
         if-no-files-found: error
   linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: cache
@@ -121,7 +121,7 @@ jobs:
           native-linux-aarch64/Harmony-aarch64.AppImage
         if-no-files-found: error
   macos:
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
     - name: cache
