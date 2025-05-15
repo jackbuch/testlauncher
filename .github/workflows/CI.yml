@@ -85,6 +85,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Install libfuse2 for AppImage
+      run: sudo apt-get update && sudo apt-get install -y libfuse2
     - name: cache
       uses: actions/cache@v3
       with:
