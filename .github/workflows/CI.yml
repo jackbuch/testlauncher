@@ -162,5 +162,5 @@ jobs:
         name: macos
         path: |
           native-osx/Harmony-x64.dmg
-          native-osx-aarch64/Paragon-aarch64.dmg
+          native-osx-aarch64/Harmony-aarch64.dmg
         if-no-files-found: error
