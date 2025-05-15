@@ -12,10 +12,10 @@ begin
   if CurStep = ssPostInstall then begin
     WriteInstallId();
 
-    rlUpgrade := GetEnv('PARAGON_UPGRADE');
+    rlUpgrade := GetEnv('HARMONY_UPGRADE');
     if rlUpgrade <> '' then begin
-      exePath := ExpandConstant('{app}\Paragon.exe');
-      Exec(exePath, GetEnv('PARAGON_UPGRADE_PARAMS'), '', SW_SHOW, ewNoWait, ResultCode);
+      exePath := ExpandConstant('{app}\Harmony.exe');
+      Exec(exePath, GetEnv('HARMONY_UPGRADE_PARAMS'), '', SW_SHOW, ewNoWait, ResultCode);
     end;
   end;
 end;

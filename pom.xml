@@ -30,8 +30,8 @@
 	<groupId>net.runelite</groupId>
 	<artifactId>launcher</artifactId>
 	<version>1.0</version>
-	<name>Paragon Launcher</name>
-	<description>Launcher for Paragon client</description>
+	<name>Harmony Launcher</name>
+	<description>Launcher for Harmony client</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -152,7 +152,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Paragon</finalName>
+		<finalName>Harmony</finalName>
 
 		<resources>
 			<resource>

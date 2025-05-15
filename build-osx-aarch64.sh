@@ -40,21 +40,21 @@ echo "${PACKR_HASH}  packr_${PACKR_VERSION}.jar" | shasum -c
 java -jar packr_${PACKR_VERSION}.jar \
 	packr/macos-aarch64-config.json
 
-cp target/filtered-resources/Info.plist native-osx-aarch64/Paragon.app/Contents
+cp target/filtered-resources/Info.plist native-osx-aarch64/Harmony.app/Contents
 
-echo Setting world execute permissions on Paragon
-pushd native-osx-aarch64/Paragon.app
-chmod g+x,o+x Contents/MacOS/Paragon
+echo Setting world execute permissions on Harmony
+pushd native-osx-aarch64/Harmony.app
+chmod g+x,o+x Contents/MacOS/Harmony
 popd
 
-codesign -f -s "${SIGNING_IDENTITY}" --entitlements osx/signing.entitlements --options runtime native-osx-aarch64/Paragon.app || true
+codesign -f -s "${SIGNING_IDENTITY}" --entitlements osx/signing.entitlements --options runtime native-osx-aarch64/Harmony.app || true
 
 # create-dmg exits with an error code due to no code signing, but is still okay
-create-dmg native-osx-aarch64/Paragon.app native-osx-aarch64/ || true
+create-dmg native-osx-aarch64/Harmony.app native-osx-aarch64/ || true
 
-mv native-osx-aarch64/Paragon\ *.dmg native-osx-aarch64/Paragon-aarch64.dmg
+mv native-osx-aarch64/Harmony\ *.dmg native-osx-aarch64/Harmony-aarch64.dmg
 
 # Notarize app
-if xcrun notarytool submit native-osx-aarch64/Paragon-aarch64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
-    xcrun stapler staple native-osx-aarch64/Paragon-aarch64.dmg
+if xcrun notarytool submit native-osx-aarch64/Harmony-aarch64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
+    xcrun stapler staple native-osx-aarch64/Harmony-aarch64.dmg
 fi
